@@ -62,7 +62,7 @@ func getCreatorDB() (*sql.DB, error) {
 	dbCreatorUser := os.Getenv("DBTEST_CREATOR_USER")
 	dbCreatorUserPwd := os.Getenv("DBTEST_CREATOR_PASSWORD")
 
-	dbinfo := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbCreatorUser, dbCreatorUserPwd, dbHost, dbPort, dbName)
+	dbinfo := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", dbCreatorUser, dbCreatorUserPwd, dbHost, dbPort, dbName)
 	return sql.Open("mysql", dbinfo)
 }
 

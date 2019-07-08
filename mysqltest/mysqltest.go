@@ -67,6 +67,6 @@ func getCreatorDB() (*sql.DB, error) {
 }
 
 func getTesterDB(testUser, testPwd string) (*sql.DB, error) {
-	dbinfo := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", testUser, testPwd, dbHost, dbPort, dbName)
+	dbinfo := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", testUser, testPwd, dbHost, dbPort, dbName)
 	return sql.Open("mysql", dbinfo)
 }
